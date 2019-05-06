@@ -313,6 +313,13 @@ int _mosquitto_try_connect(struct mosquitto *mosq, const char *host, uint16_t po
 			continue;
 		}
 
+        int nodelay_flag = 1;
+        if (setsockopt(*sock, IPPROTO_TCP, TCP_NODELAY, (void*) &nodelay_flag, sizeof(int)) < 0) {
+            printf("Cannot set nodelay");
+        } else {
+            printf("nodelay set successfully");
+        }
+
 		if(bind_address){
 			for(rp_bind = ainfo_bind; rp_bind != NULL; rp_bind = rp_bind->ai_next){
 				if(bind(*sock, rp_bind->ai_addr, rp_bind->ai_addrlen) == 0){
