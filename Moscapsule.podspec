@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.platform = :ios
   s.ios.deployment_target = '8.0'
 
-  s.source       = { :git => "https://github.com/flightonary/Moscapsule.git", :tag => s.version }
+  s.source       = { :git => "https://github.com/tin612/Moscapsule.git" , :tag => s.version }
 
   s.source_files = "Moscapsule/*.{h,m,swift}", "mosquitto/lib/*.{h,c}"
   s.public_header_files = "Moscapsule/Moscapsule.h", "Moscapsule/MosquittoCallbackBridge.h", "mosquitto/lib/mosquitto.h"
